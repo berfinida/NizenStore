@@ -1,5 +1,5 @@
 <div align="center">
-
+![NizenStore Preview](preview.png)
 # 🛍️ NizenStore
 
 ### Modern E-Commerce Website • Clean UI • Responsive Design
