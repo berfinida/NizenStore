@@ -1,116 +1,162 @@
-# Nizen Store
+<div align="center">
 
-Tek sayfa (single-file) butik e-ticaret demo arayuzu. Proje yalnizca `index.html` dosyasi ile calisir; urun listesi, sepet, favoriler, kombinler, dil degisimi (TR/EN) ve modal/panel akislarini istemci tarafinda yonetir.
+# 🛍️ NizenStore
 
-## Ozellikler
+### Modern E-Commerce Website • Clean UI • Responsive Design
 
-- Kadin/erkek koleksiyonlari ve kategori filtreleri
-- Arama + filtre kombinasyonu
-- Urun karti, hizli beden secimi ve detay modal'i
-- Sepet paneli (adet, toplam, silme)
-- Favoriler paneli ve favoriden sepete ekleme akisi
-- Hazir kombinler (look) ve tek tikla coklu urun ekleme
-- Kampanya slider'i (ok/dot/otomatik gecis)
-- TR/EN i18n metinleri ve fiyat gosterimi
-- `localStorage` ile sepet/favori/dil kaliciligi
-- Erisilebilirlik odakli iyilestirmeler:
-  - `aria-live` bildirimleri
-  - klavye ile kart acma (Enter/Space)
-  - ESC/overlay/back ile katman kapatma
-  - modal/panel focus trap
+[![Live Demo](https://img.shields.io/badge/Live-Demo-000?style=for-the-badge&logo=github)](https://berfinida.github.io/NizenStore/)
+[![HTML](https://img.shields.io/badge/HTML5-Structure-orange?style=for-the-badge&logo=html5)]()
+[![CSS](https://img.shields.io/badge/CSS3-Styling-blue?style=for-the-badge&logo=css3)]()
+[![JavaScript](https://img.shields.io/badge/JavaScript-Logic-yellow?style=for-the-badge&logo=javascript)]()
+[![Responsive](https://img.shields.io/badge/Responsive-Design-green?style=for-the-badge)]()
 
-## Hizli Baslangic
+A modern **e-commerce web application interface** built with **HTML, CSS and JavaScript**.
 
-1. Depoyu/acik dosyalari ayni klasorde tutun.
-2. `index.html` dosyasini tarayicida acin.
-3. Gelistirme icin Live Server gibi bir aracla klasoru serve edebilirsiniz (opsiyonel).
+🌐 **Live Demo**  
+https://berfinida.github.io/NizenStore/
 
-Not: Ayrica bir paket yoneticisi, build adimi veya backend gerektirmez.
+</div>
 
-## Checkout API (Opsiyonel ama onerilir)
+---
 
-Gercek odeme akisina yakin test icin minimal Node/Express checkout API dahil edildi.
+# ✨ Overview
 
-1. `npm install`
-2. `.env.example` dosyasini `.env` olarak kopyalayin ve gerekirse degerleri guncelleyin.
-3. `npm start`
-4. Frontend icinde `APP_CONFIG.checkoutApiUrl` alanini `http://localhost:8787/api/checkout/session` yapin.
+**NizenStore** is a modern online store interface designed to simulate a **real e-commerce shopping experience**.
 
-Provider secenekleri:
+The application focuses on providing a **clean, minimal and user-friendly shopping interface**.
 
-- `PAYMENT_PROVIDER=mock` (varsayilan)
-- `PAYMENT_PROVIDER=stripe`
-- `PAYMENT_PROVIDER=iyzico`
+The system includes:
 
-Stripe icin:
+• product catalog  
+• product detail views  
+• cart system  
+• responsive layout  
 
-- `STRIPE_SECRET_KEY`
-- `STRIPE_WEBHOOK_SECRET`
-- `STRIPE_SUCCESS_URL`
-- `STRIPE_CANCEL_URL`
+The goal is to demonstrate a **modern frontend architecture for online store websites**.
 
-iyzico icin:
+---
 
-- `IYZICO_API_KEY`
-- `IYZICO_SECRET_KEY`
-- `IYZICO_BASE_URL`
-- `IYZICO_CALLBACK_URL`
+# 🚀 Features
 
-Order durum endpointleri:
+## 🛍 Product Catalog
 
-- `GET /api/orders/:idempotencyKey`
-- `GET /api/orders/session/:sessionId`
+Products are displayed in a clean and organized layout.
 
-Webhook endpointleri:
+Each product includes:
 
-- Stripe: `POST /webhooks/stripe`
-- iyzico: `POST /webhooks/iyzico`
-- iyzico callback: `POST /iyzico/callback`
+• product image  
+• name  
+• description  
+• price  
 
-## Webhook Test Scripti (PowerShell)
+---
 
-Tek komutla checkout + order status polling + (opsiyonel) Stripe trigger:
+## 🔎 Product Browsing
 
-```bash
-npm run test:webhooks
+Users can easily explore products through a structured product list.
+
+Features include:
+
+• modern grid layout  
+• intuitive navigation  
+• clean product cards  
+
+---
+
+## 🛒 Shopping Cart System
+
+Customers can add items to a shopping cart.
+
+Features include:
+
+• add to cart  
+• remove items  
+• update quantity  
+• order preview  
+
+---
+
+## 📱 Responsive Design
+
+The interface adapts smoothly across devices.
+
+Supported screens:
+
+• mobile  
+• tablet  
+• desktop  
+
+---
+
+# 🖼 Interface Preview
+
+![NizenStore Preview](preview.png)
+
+---
+
+# 🛠 Tech Stack
+
+| Technology | Purpose |
+|------------|--------|
+| HTML5 | Page structure |
+| CSS3 | UI design |
+| JavaScript | Interactive logic |
+
+The project is built **without frameworks** to keep the application lightweight and fast.
+
+---
+
+# 📂 Project Structure
+
+```
+NizenStore
+│
+├── assets/
+├── images/
+│
+├── index.html
+├── style.css
+├── script.js
+├── README.md
+└── preview.png
 ```
 
-Ornekler:
+---
 
-```bash
-powershell -ExecutionPolicy Bypass -File scripts/test-webhooks.ps1 -Mode stripe -AuthToken "<TOKEN>"
-powershell -ExecutionPolicy Bypass -File scripts/test-webhooks.ps1 -Mode iyzico -AuthToken "<TOKEN>"
-powershell -ExecutionPolicy Bypass -File scripts/test-webhooks.ps1 -Mode checkout-only -AuthToken "<TOKEN>"
-```
+# 🎯 Project Purpose
 
-API sozlesmesi:
+The project was created to:
 
-- `CHECKOUT_API_CONTRACT.md`
+• practice modern frontend development  
+• build a realistic e-commerce UI  
+• create a portfolio-ready web application  
 
-## Proje Yapisi
+---
 
-- `index.html`: Tum HTML + CSS + JavaScript kodu
-- `CHECKOUT_API_CONTRACT.md`: Checkout API istek/yanit sozlesmesi
-- `server.js`: Minimal checkout session API sunucusu
-- `.env.example`: Checkout API ortam degiskenleri ornegi
+# 🔮 Future Improvements
 
-## Veri Kaliciligi
+Possible improvements for the project:
 
-Uygulama asagidaki anahtarlarla `localStorage` kullanir:
+• payment system integration  
+• user authentication system  
+• product filtering and search  
+• admin dashboard  
+• backend integration (Node.js / Python)
 
-- `nizen_cart`
-- `nizen_wishlist`
-- `nizen_lang`
-- `nizen_checkout_payload`
+---
 
-Okuma/yazma islemleri `safeLoadJSON`, `safeSetJSON`, `safeGetValue`, `safeSetValue` yardimcilariyla korumali yapilir.
+# 👩‍💻 Developer
 
-## Sonraki Iyilestirmeler
+**Berfin Nida Öztürk**
 
-Planlanan baslica sonraki adimlar:
+GitHub  
+https://github.com/berfinida
 
-- CDN varliklari icin SRI sabitleme
-- i18n kapsami icin otomatik test
-- DOM smoke testleri
-- kapsamli erisilebilirlik denetimi (axe)
+LinkedIn  
+https://www.linkedin.com/in/berfin-nida-%C3%B6zt%C3%BCrk-6a12131b7/
 
+---
+
+# 📄 License
+
+MIT License
