@@ -15,11 +15,7 @@
 A modern **e-commerce web application interface** built with **HTML, CSS and JavaScript**.
 
 🌐 **Live Demo**  
-https://berfinida.github.io/NizenStore/
-
-</div>
-
----
+https://nizen-store.vercel.app/
 
 # ✨ Overview
 
